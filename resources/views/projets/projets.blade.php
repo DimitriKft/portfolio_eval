@@ -36,6 +36,7 @@
             <td>{{$case->repo_url}}</td>
             <td>{{$case->website_url}}</td>
             <td>{{$case->categories_id}}</td>  --}}
+            @auth 
             <td><a href="{{ route('projets.edit', $case->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
                 <form action="{{ route('projets.destroy', $case->id)}}" method="post">
@@ -44,6 +45,7 @@
                   <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
             </td>
+            @endauth
         </tr>
         @endforeach
     </tbody>

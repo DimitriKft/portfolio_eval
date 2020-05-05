@@ -22,8 +22,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-// Route::get('projets', 'ProjetsController@projets');
-// Route::get('projets/create', 'ProjetsController@create');
-// Route::post('projets/create', 'ProjetsController@show');
 
 Route::resource('projets', 'ProjetsController');
+Route::resource('articles', 'ArticlesController');

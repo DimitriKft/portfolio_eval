@@ -37,10 +37,10 @@
                                         <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
                                       </li>
                                       <li class="nav-item">
-                                        <a class="nav-link" href="/projets">projet</a>
+                                        <a class="nav-link" href="/projets">Projet</a>
                                       </li>
                                       <li class="nav-item">
-                                        <a class="nav-link" href="/article">Article</a>
+                                        <a class="nav-link" href="/articles">Article</a>
                                       </li>
                                       @auth    
                                       <li class="nav-item">
