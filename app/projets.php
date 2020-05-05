@@ -2,19 +2,21 @@
 
 namespace App;
 
+use App\categories;
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
-class projets extends Model
+class Projets extends Model
 {
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'decription', 'password', 'image_url', 'technology', 'repo_url', 'website_url', 'categories_id',
-        'created_at', 'update_at'
-    ];
+    // protected $fillable = [
+    //     'name', 'decription', 'password', 'image_url', 'technology', 'repo_url', 'website_url', 'categories_id',
+    //     'created_at', 'update_at'
+    // ];
 
     protected $guarded = [];
 

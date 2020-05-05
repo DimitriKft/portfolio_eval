@@ -2,49 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use App\Projets;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Symfony\Component\HttpKernel\Profiler\Profile;
+
 
 class ProjetsController extends Controller
 {
-    public function projets(Request $request)
+   
+    public function index()
     {
-        $projets = DB::table('projets')->get();
-
-        return view('projets', [
-            'projets' => $projets
-        ]);
+        $projets = Projets::all();
+        return view('projets', compact('projets'));
     }
 
     public function create()
     {
-        $projets = Projets::all();
-        $users   = User::all();
-
-        return view('create.addprojets', compact('projets','users'));
+        return view('create');
     }
 
-    public function show()
+    public function store(Request $request)
     {
-         $data = request()->validate([
-            'name'                  => 'required|min:3',
-            'description'           => 'required|min:3',
-            'image_url'             => 'required|min:3',
-            'technology'            => 'required|integer',
-            'repo_url'              => 'required|min:3',
-            'website_url'           => 'required|min:3',
-            'categories_id'         => 'required|min:3',
-            'created_at'            => 'required|min:3',
-            'updated_at'            => 'required|min:3'
+        $validatedData = $request->validate([
+            'name'          => 'required',
+            'description'   => 'required',
+            'image_url'     => 'required',
+            'technology'    => 'required',
+            'repo_url'      => 'required',
+            'website_url'   => 'required',
+            'categories_id' => 'required',
         ]);
-
-            Projets::create($data);
-
-            return redirect('projets');
+        Projets::create($validatedData);
+        return redirect('/projets')->with('success', 'Votre projet à été correctement enregistré.');
     }
 
+    public function edit($id)
+{
+        $projets = Projets::findOrFail($id);
+
+        return view('edit', compact('projets'));
+}
 }
