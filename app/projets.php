@@ -15,4 +15,11 @@ class projets extends Model
         'name', 'decription', 'password', 'image_url', 'technology', 'repo_url', 'website_url', 'categories_id',
         'created_at', 'update_at'
     ];
+
+    protected $guarded = [];
+
+    public function category_relation()
+    {
+        return $this->hasMany('App\categories');
+    }
 }
