@@ -24,3 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('projets', 'ProjetsController@projets');
+Route::get('projets', 'ProjetsController@show');
