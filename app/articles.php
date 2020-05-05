@@ -17,6 +17,6 @@ class articles extends Model
 
     public function user_relation()
     {
-        return $this->hasMany('App\categories');
+        return $this->belongsTo('App\user');
     }
 }

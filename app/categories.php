@@ -17,7 +17,7 @@ class categories extends Model
 
     public function projet_relation()
     {
-    return $this->belongsTo('App\user');
+    return $this->hasMany('App\projets');
     }
 
 }

@@ -20,6 +20,6 @@ class projets extends Model
 
     public function category_relation()
     {
-        return $this->hasMany('App\categories');
+        return $this->belongsTo('App\categories');
     }
 }

@@ -39,6 +39,6 @@ class User extends Authenticatable
 
     public function articles_relation()
     {
-    return $this->belongsTo('App\user');
+    return $this->hasMany('App\articles');
     }
 }
