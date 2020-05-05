@@ -33,8 +33,29 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li><a href="/projets">Mes projets</a></li>
-                        <li><a href="/projets/create">Créer un projet</a></li>
+                            <ul class="navbar-nav mr-auto">
+                
+
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="/projets">projet</a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="/article">Article</a>
+                                      </li>
+                                      @auth    
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="/projets/create">Créer un projet</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/articles/create">Créer un article</a>
+                                          </li>    
+                                      <li>
+                                      @endauth
+            
+                                </ul>
 
 
                     </ul>
