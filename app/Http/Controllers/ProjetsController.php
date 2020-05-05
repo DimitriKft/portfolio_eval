@@ -42,4 +42,29 @@ class ProjetsController extends Controller
 
         return view('edit', compact('projets'));
 }
+
+public function update(Request $request, $id)
+{
+        $validatedData = $request->validate([
+            'name'          => 'required',
+            'description'   => 'required',
+            'image_url'     => 'required',
+            'technology'    => 'required',
+            'repo_url'      => 'required',
+            'website_url'   => 'required',
+            'categories_id' => 'required',
+        ]);
+        Projets::whereId($id)->update($validatedData);
+
+        return redirect('/projets')->with('success', 'Votre projet à bien été édité');
+}
+
+public function destroy($id)
+{
+        $projets = Projets::findOrFail($id);
+        $projets->delete();
+
+        return redirect('/projets')->with('success', 'Votre projet à bien été supprimé');
+}
+
 }
