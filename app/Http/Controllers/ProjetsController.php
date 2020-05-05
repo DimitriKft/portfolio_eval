@@ -7,7 +7,7 @@ use App\Projets;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 class ProjetsController extends Controller
 {
@@ -18,6 +18,14 @@ class ProjetsController extends Controller
         return view('projets', [
             'projets' => $projets
         ]);
+    }
+
+    public function create()
+    {
+        $projets = Projets::all();
+        $users   = User::all();
+
+        return view('create.addprojets', compact('projets','users'));
     }
 
     public function show()

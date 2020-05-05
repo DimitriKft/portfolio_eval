@@ -4,7 +4,16 @@
 @section('content')
 <div align="center" class="container">
 
-<p>{{ $projets }}</p>
+
+
+@foreach($projets as $key => $data)
+
+      <p>{{$data->name}}</p>  
+      <p>{{$data->description}}</p>    
+      <p>{{$data->technology}}</p>         
+      <p>{{$data->website_url}}</p>
+      <p>{{$data->name}}</p>        
+@endforeach
 {{--  
     @foreach ($projets as $projet )
         <p>{{ $projets->description }}</p>
