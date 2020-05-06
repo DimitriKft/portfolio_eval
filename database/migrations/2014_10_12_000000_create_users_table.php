@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('avatar')->default('https://www.blog-nouvelles-technologies.fr/wp-content/uploads/2017/12/detective-avatar-icon-01--840x500.jpg')->nullable();
+            $table->longText('avatar')->nullable();
             $table->integer('tel')->nullable();
             $table->string('adress')->nullable();
             $table->rememberToken();

@@ -17,7 +17,7 @@ class CreateMessagesTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('email');
-            $table->string('message');
+            $table->longText('message');
             $table->timestamps();
         });
     }

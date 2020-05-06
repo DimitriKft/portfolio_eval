@@ -12,41 +12,28 @@
       {{ session()->get('success') }}  
     </div><br />
   @endif
-  <table class="table table-striped">
-    <thead>
-        <tr>
-          <td>ID</td>
-          <td>Titre</td>
-          <td>Description</td>
-          {{--  <td>Image</td>
-          <td>Technologie</td>
-          <td>Repository</td>
-          <td>Site web ou Hébergement</td>
-          <td>Catégorie du projet</td>  --}}
-        </tr>
-    </thead>
-    <tbody>
-        @foreach($articles as $case)
-        <tr>
-            <td>{{$case->id}}</td>
-            <td>{{$case->title}}</td>
-            <td>{{$case->description}}</td>
-            {{--  <td>{{$case->image_url}}</td>
-            <td>{{$case->technology}}</td>
-            <td>{{$case->repo_url}}</td>
-            <td>{{$case->website_url}}</td>
-            <td>{{$case->categories_id}}</td>  --}}
-            <td><a href="{{ route('articles.edit', $case->id)}}" class="btn btn-primary">Edit</a></td>
-            <td>
-                <form action="{{ route('articles.destroy', $case->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-  </table>
 <div>
+    @foreach($articles as $case)
+    <div class="card mb-3">
+        <img class="card-img-top" src="{{$case->image_url}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{$case->title}}</h5>
+          <p class="card-text">{{$case->description}}</p>
+          <p class="card-text"><small class="text-muted">Last updated {{$case->updated_at}}</small></p>
+        </div>
+      </div>
+        @auth
+            
+      
+        <td><a href="{{ route('articles.edit', $case->id)}}" class="btn btn-primary">Edit</a></td>
+        <td>
+            <form action="{{ route('articles.destroy', $case->id)}}" method="post">
+              @csrf
+              @method('DELETE')
+              <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    @endauth
+    @endforeach
 @endsection
