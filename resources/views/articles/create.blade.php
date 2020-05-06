@@ -34,17 +34,21 @@
                 <label for="image_url">Image :</label>
                 <input type="text" class="form-control" name="image_url"/>
             </div>
-            <div class="form-group">
-                    <label for="user_id">Auteur :</label>
-                    <input type="text" class="form-control" name="user_id"/>
-                </div>
                  <div class="form_group">
-                    <select class="custom-select" name="ore">
+                    <select class="custom-select" name="user_id">
                         @foreach($users as $user)
-                        <option value="{{ $user->user_id }}">{{ $user->name }}</option>
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
                         @endforeach
                     </select>
                 </div> 
+
+                {{-- <div class="form_group">
+                  <select class="custom-select" name="categories_id">
+                      @foreach($cats as $cat)
+                      <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                      @endforeach
+                  </select>
+              </div> --}}
           <button type="submit" class="btn btn-primary">Soumettre</button>
       </form>
   </div>
