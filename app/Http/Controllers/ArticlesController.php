@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Articles;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -11,12 +12,15 @@ class ArticlesController extends Controller
      public function index()
     {
         $articles = Articles::all();
-        return view('articles.articles', compact('articles'));
+        $users = User::all();
+        return view('articles.articles', compact('articles', 'users'));
     }
 
     public function create()
     {
-        return view('articles.create');
+        $articles = Articles::all();
+        $users = User::all();
+        return view('articles.create', compact('articles', 'users'));
     }
 
     public function store(Request $request)
@@ -34,14 +38,12 @@ class ArticlesController extends Controller
     public function edit($id)
     {
             $articles = Articles::findOrFail($id);
-
             return view('articles.edit', compact('articles'));
     }
 
     public function show($id)
     {
             $articles = Articles::findOrFail($id);
-
             return view('articles.show', compact('articles'));
     }
 

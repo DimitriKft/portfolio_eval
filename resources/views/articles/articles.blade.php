@@ -17,7 +17,14 @@
         <div class="card-body">
         <h5 class="card-title">{{ $case->title }}</h5>
         <p class="card-text">{{ Illuminate\Support\Str::limit($case->description, 150) }}</p>
-        <p class="card-text">{{ $case->user_id }}</p>
+        {{-- <p class="card-text">{{ $case->user_id }}</p> --}}
+
+        @foreach ($users as $user)
+        @if( $case->user_id == $user->id  )
+          <p class="card-text"><b>Auteur de l'article : </b>{{ $user->name }}</p>
+        @endif
+      @endforeach
+      
       </div>
       <a href="{{ route('articles.show', $case->id)}}" class="btn btn-success">Voir L'article</a>
       @auth

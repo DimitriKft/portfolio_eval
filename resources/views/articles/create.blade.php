@@ -38,13 +38,13 @@
                     <label for="user_id">Auteur :</label>
                     <input type="text" class="form-control" name="user_id"/>
                 </div>
-                {{--  <div class="form_group">
+                 <div class="form_group">
                     <select class="custom-select" name="ore">
-                        @foreach($articles as $user)
-                        <option value="{{ $user->user_id }}">{{ $user->user_id }}</option>
+                        @foreach($users as $user)
+                        <option value="{{ $user->user_id }}">{{ $user->name }}</option>
                         @endforeach
                     </select>
-                </div>  --}}
+                </div> 
           <button type="submit" class="btn btn-primary">Soumettre</button>
       </form>
   </div>
