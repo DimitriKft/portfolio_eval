@@ -46,10 +46,13 @@
                             <label for="website_url">Site / hébergement :</label>
                             <input type="text" class="form-control" name="website_url"/>
                         </div>
-                        <div class="form-group">
-                                <label for="categories_id">Catégories :</label>
-                                <input type="text" class="form-control" name="categories_id"/>
-                            </div>
+                            <div class="form_group">
+                              <select class="custom-select" name="categories_id">
+                                  @foreach($cats as $cat)
+                                  <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                  @endforeach
+                              </select>
+                          </div>
           <button type="submit" class="btn btn-danger">Ajouter votre projet !</button>
       </form>
   </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Projets;
+use App\Categories;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -13,12 +14,15 @@ class ProjetsController extends Controller
     public function index()
     {
         $projets = Projets::all();
-        return view('projets.projets', compact('projets'));
+        $cats = Categories::all();
+        return view('projets.projets', compact('projets', 'cats'));
     }
 
     public function create()
     {
-        return view('projets.create');
+        $projets = Projets::all();
+        $cats = Categories::all();
+        return view('projets.create', compact('projets', 'cats'));
     }
 
     public function store(Request $request)

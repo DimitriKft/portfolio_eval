@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class categories extends Model
+class Categories extends Model
 {
         /**
      * The attributes that are mass assignable.
@@ -15,9 +15,14 @@ class categories extends Model
         'slug', 'name', 'created_at', 'updated_at'
     ];
 
-    public function projet_relation()
-    {
-    return $this->hasMany('App\projets');
+    // public function projet_relation()
+    // {
+    // return $this->hasMany('App\Projets');
+    // }
+
+    public function product_type() {
+        return $this->belongsTo('App\Projets', 'categories_id');
     }
+    
 
 }

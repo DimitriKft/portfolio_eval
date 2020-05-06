@@ -20,8 +20,13 @@ class Projets extends Model
 
     protected $guarded = [];
 
-    public function category_relation()
-    {
-        return $this->belongsTo('App\categories');
+    // public function category_relation()
+    // {
+    //     return $this->belongsTo('App\Categories');
+    // }
+
+    public function product_type() {
+        return $this->belongsTo('App\Categories', 'categories_id');
     }
+    
 }
