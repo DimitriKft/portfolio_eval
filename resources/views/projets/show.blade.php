@@ -30,7 +30,11 @@
                 <p class="card-text"> <b>Technologies : </b>{{ $projets->technology }}</p>
                 <p class="card-text"><b>Repository : </b>{{ $projets->repo_url }}</p>
                 <p class="card-text"><b>Site web/Hébergement : </b>{{ $projets->website_url }}</p>
-                <p class="card-text"><b>Catégorie du porjet : </b>{{ $projets->categories_id }}</p>projets
+                @foreach ($cats as $cat)
+                @if( $projets->categories_id == $cat->id  )
+                  <p class="card-text"><b>Catégorie du porjet : </b>{{ $cat->name }}</p>
+                @endif
+              @endforeach
             </div>
           </div>
               @auth

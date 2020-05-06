@@ -8,7 +8,7 @@
 </style>
 <div class="card uper">
   <div class="card-header">
-    Edit Corona Virus Data
+   <h5><b>{{ $projets->name }}</b></h5>
   </div>
   <div class="card-body">
     @if ($errors->any())
@@ -47,11 +47,14 @@
                         <label for="website_url">website_url :</label>
                         <input type="text" class="form-control" name="website_url" value="{{ $projets->website_url }}"/>
                     </div>
-                    <div class="form-group">
-                            <label for="categories_id">categories du projet :</label>
-                            <input type="text" class="form-control" name="categories_id" value="{{ $projets->categories_id }}"/>
-                        </div>
-          <button type="submit" class="btn btn-primary">Update Data</button>
+                    <div class="form_group">
+                        <select class="custom-select" name="categories_id">
+                            @foreach($cats as $cat)
+                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+          <button type="submit" class="btn btn-primary">Editer le projet</button>
       </form>
   </div>
 </div>

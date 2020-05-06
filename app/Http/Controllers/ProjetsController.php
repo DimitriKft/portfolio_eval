@@ -43,15 +43,16 @@ class ProjetsController extends Controller
     public function edit($id)
     {
             $projets = Projets::findOrFail($id);
-
-            return view('projets.edit', compact('projets'));
+            $cats = Categories::all();
+            return view('projets.edit', compact('projets', 'cats'));
     }
 
     public function show($id)
     {
             $projets = Projets::findOrFail($id);
+            $cats = Categories::all();
 
-            return view('projets.show', compact('projets'));
+            return view('projets.show', compact('projets', 'cats'));
     }
 
     public function update(Request $request, $id)
