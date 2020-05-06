@@ -38,13 +38,15 @@ class ArticlesController extends Controller
     public function edit($id)
     {
             $articles = Articles::findOrFail($id);
-            return view('articles.edit', compact('articles'));
+            $users = User::all();
+            return view('articles.edit', compact('articles', 'users'));
     }
 
     public function show($id)
     {
             $articles = Articles::findOrFail($id);
-            return view('articles.show', compact('articles'));
+            $users = User::all();
+            return view('articles.show', compact('articles', 'users'));
     }
 
     public function update(Request $request, $id)

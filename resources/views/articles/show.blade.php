@@ -25,9 +25,13 @@
         <div class="card mb-3">
             <img class="card-img-top" src="{{ $articles->image_url }}" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">{{ $articles->title }}</h5>
+              <h5 class="card-title"><b>{{ $articles->title }}</b></h5>
               <p class="card-text">{{ $articles->description }}</p>
-              <p class="card-text"><small class="text-muted">{{ $articles->user_id }}</small></p>
+              @foreach ($users as $user)
+              @if( $articles->user_id == $user->id  )
+                <p class="card-text"><b>Auteur de l'article : </b>{{ $user->name }}</p>
+              @endif
+            @endforeach
             </div>
           </div>
               @auth
