@@ -28,7 +28,7 @@ class ArticlesController extends Controller
             'user_id'    => 'required',
         ]);
         Articles::create($validatedData);
-        return redirect('/articles')->with('success', 'Votre articles à été correctement enregistré.');
+        return redirect('/articles')->with('success', 'Votre articles à été correctement enregistré.', compact('articles'));
     }
 
     public function edit($id)
@@ -36,6 +36,13 @@ class ArticlesController extends Controller
             $articles = Articles::findOrFail($id);
 
             return view('articles.edit', compact('articles'));
+    }
+
+    public function show($id)
+    {
+            $articles = Articles::findOrFail($id);
+
+            return view('articles.show', compact('articles'));
     }
 
     public function update(Request $request, $id)

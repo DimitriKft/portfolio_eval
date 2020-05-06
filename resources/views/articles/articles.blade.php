@@ -1,39 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-  .uper {
-    margin-top: 40px;
-  }
-</style>
-<div class="uper">
-  @if(session()->get('success'))
-    <div class="alert alert-success">
-      {{ session()->get('success') }}  
-    </div><br />
-  @endif
-<div>
-    @foreach($articles as $case)
-    <div class="card mb-3">
-        <img class="card-img-top" src="{{$case->image_url}}" alt="Card image cap">
+
+
+<div class="container">
+  <div class="row">
+    @if(session()->get('success'))
+      <div class="alert alert-success">
+        {{ session()->get('success') }}  
+      </div><br />
+    @endif
+    @foreach($articles as $case) 
+    <div class="col-sm">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{ $case->image_url }}" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">{{$case->title}}</h5>
-          <p class="card-text">{{$case->description}}</p>
-          <p class="card-text"><small class="text-muted">Last updated {{$case->updated_at}}</small></p>
-        </div>
+        <h5 class="card-title">{{ $case->title }}</h5>
+        <p class="card-text">{{ $case->description }}</p>
+        <p class="card-text">{{ $case->user_id }}</p>
       </div>
-        @auth
-            
-      
-        <td><a href="{{ route('articles.edit', $case->id)}}" class="btn btn-primary">Edit</a></td>
-        <td>
-            <form action="{{ route('articles.destroy', $case->id)}}" method="post">
-              @csrf
-              @method('DELETE')
-              <button class="btn btn-danger" type="submit">Delete</button>
-            </form>
-        </td>
-    </tr>
-    @endauth
+      <a href="{{ route('articles.show', $case->id)}}" class="btn btn-warning">Voir L'article</a>
+      @auth
+      <a href="{{ route('articles.edit', $case->id)}}" class="btn btn-primary">Éditer</a>
+      <form action="{{ route('articles.destroy', $case->id)}}" method="post">
+        @csrf
+        @method('DELETE')
+        <button class="btn btn-danger" type="submit">Supprimer</button>
+      </form>
+      @endauth
+  </div>
+</div>
     @endforeach
+  </div>
 @endsection

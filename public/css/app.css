@@ -51,6 +51,11 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+/* .item{
+  display: flex;
+  flex-direction: row;
+} */
+
 article,
 aside,
 figcaption,

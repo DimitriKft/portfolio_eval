@@ -38,6 +38,13 @@
                     <label for="user_id">Auteur :</label>
                     <textarea rows="5" columns="5" class="form-control" name="user_id"></textarea>
                 </div>
+                {{--  <div class="form_group">
+                    <select class="custom-select" name="ore">
+                        @foreach($articles as $user)
+                        <option value="{{ $user->user_id }}">{{ $user->user_id }}</option>
+                        @endforeach
+                    </select>
+                </div>  --}}
           <button type="submit" class="btn btn-primary">Add Data</button>
       </form>
   </div>
