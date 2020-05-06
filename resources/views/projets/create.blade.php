@@ -8,7 +8,7 @@
 </style>
 <div class="card uper">
   <div class="card-header">
-    Add Corona Virus Data
+    Ajoutez un nouveau projet :
   </div>
   <div class="card-body">
     @if ($errors->any())
@@ -23,34 +23,34 @@
       <form method="post" action="{{ route('projets.store') }}">
           <div class="form-group">
               @csrf
-              <label for="country_name">Name:</label>
+              <label for="name">Nom du projet:</label>
               <input type="text" class="form-control" name="name"/>
           </div>
           <div class="form-group">
-              <label for="symptoms">Description :</label>
+              <label for="description">Description :</label>
               <textarea rows="5" columns="5" class="form-control" name="description"></textarea>
           </div>
           <div class="form-group">
-                <label for="symptoms">Image :</label>
-                <textarea rows="5" columns="5" class="form-control" name="image_url"></textarea>
+                <label for="image_url">Image :</label>
+                <input type="text" class="form-control" name="image_url"/>
             </div>
             <div class="form-group">
-                    <label for="symptoms">Technologie :</label>
-                    <textarea rows="5" columns="5" class="form-control" name="technology"></textarea>
+                    <label for="technology">Technologie :</label>
+                    <input type="text" class="form-control" name="technology"/>
                 </div>
                 <div class="form-group">
-                        <label for="symptoms">Repository :</label>
-                        <textarea rows="5" columns="5" class="form-control" name="repo_url"></textarea>
+                        <label for="repo_url">Repository :</label>
+                        <input type="text" class="form-control" name="repo_url"/>
                     </div>
                     <div class="form-group">
-                            <label for="symptoms">Site / hébergement :</label>
-                            <textarea rows="5" columns="5" class="form-control" name="website_url"></textarea>
+                            <label for="website_url">Site / hébergement :</label>
+                            <input type="text" class="form-control" name="website_url"/>
                         </div>
                         <div class="form-group">
-                                <label for="symptoms">Catégories :</label>
-                                <textarea rows="5" columns="5" class="form-control" name="categories_id"></textarea>
+                                <label for="categories_id">Catégories :</label>
+                                <input type="text" class="form-control" name="categories_id"/>
                             </div>
-          <button type="submit" class="btn btn-primary">Add Data</button>
+          <button type="submit" class="btn btn-danger">Ajouter votre projet !</button>
       </form>
   </div>
 </div>

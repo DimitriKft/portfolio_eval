@@ -8,7 +8,7 @@
 </style>
 <div class="card uper">
   <div class="card-header">
-    Add Corona Virus Data
+   Créer un nouvelle article
   </div>
   <div class="card-body">
     @if ($errors->any())
@@ -32,11 +32,11 @@
           </div>
           <div class="form-group">
                 <label for="image_url">Image :</label>
-                <textarea rows="5" columns="5" class="form-control" name="image_url"></textarea>
+                <input type="text" class="form-control" name="image_url"/>
             </div>
             <div class="form-group">
                     <label for="user_id">Auteur :</label>
-                    <textarea rows="5" columns="5" class="form-control" name="user_id"></textarea>
+                    <input type="text" class="form-control" name="user_id"/>
                 </div>
                 {{--  <div class="form_group">
                     <select class="custom-select" name="ore">
@@ -45,7 +45,7 @@
                         @endforeach
                     </select>
                 </div>  --}}
-          <button type="submit" class="btn btn-primary">Add Data</button>
+          <button type="submit" class="btn btn-primary">Soumettre</button>
       </form>
   </div>
 </div>

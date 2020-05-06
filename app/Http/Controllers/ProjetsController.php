@@ -28,8 +28,8 @@ class ProjetsController extends Controller
             'description'   => 'required',
             'image_url'     => 'required',
             'technology'    => 'required',
-            'repo_url'      => 'required',
-            'website_url'   => 'required',
+            'repo_url'      => 'nullable',
+            'website_url'   => 'nullable',
             'categories_id' => 'required',
         ]);
         Projets::create($validatedData);
@@ -43,6 +43,13 @@ class ProjetsController extends Controller
             return view('projets.edit', compact('projets'));
     }
 
+    public function show($id)
+    {
+            $projets = Projets::findOrFail($id);
+
+            return view('projets.show', compact('projets'));
+    }
+
     public function update(Request $request, $id)
     {
             $validatedData = $request->validate([
@@ -50,8 +57,8 @@ class ProjetsController extends Controller
                 'description'   => 'required',
                 'image_url'     => 'required',
                 'technology'    => 'required',
-                'repo_url'      => 'required',
-                'website_url'   => 'required',
+                'repo_url'      => 'nullable',
+                'website_url'   => 'nullable',
                 'categories_id' => 'required',
             ]);
             Projets::whereId($id)->update($validatedData);
