@@ -43,7 +43,7 @@ class MessageController extends Controller
             'message'     => 'required',
         ]);
         Messages::create($validatedData);
-        return redirect('/')->with('success', 'Votre message ma correctement été transmis.', compact('message'));
+        return redirect('/home')->with('success', 'Votre message ma correctement été transmis.', compact('message'));
     }
 
     /**

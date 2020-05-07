@@ -41,7 +41,7 @@ class CategoriesController extends Controller
             'slug'   => 'required',
         ]);
         Categories::create($validatedData);
-        return redirect('/')->with('success', 'Votre articles à été correctement enregistré.', compact('articles'));
+        return redirect('/home')->with('success', 'Votre articles à été correctement enregistré.', compact('articles'));
     }
 
     /**
