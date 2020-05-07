@@ -42,41 +42,38 @@ class ProjetsController extends Controller
 
     public function edit($id)
     {
-            $projets = Projets::findOrFail($id);
-            $cats = Categories::all();
-            return view('projets.edit', compact('projets', 'cats'));
+        $projets = Projets::findOrFail($id);
+        $cats = Categories::all();
+        return view('projets.edit', compact('projets', 'cats'));
     }
 
     public function show($id)
     {
-            $projets = Projets::findOrFail($id);
-            $cats = Categories::all();
-
-            return view('projets.show', compact('projets', 'cats'));
+        $projets = Projets::findOrFail($id);
+        $cats = Categories::all();
+        return view('projets.show', compact('projets', 'cats'));
     }
 
     public function update(Request $request, $id)
     {
-            $validatedData = $request->validate([
-                'name'          => 'required',
-                'description'   => 'required',
-                'image_url'     => 'required',
-                'technology'    => 'required',
-                'repo_url'      => 'nullable',
-                'website_url'   => 'nullable',
-                'categories_id' => 'required',
-            ]);
-            Projets::whereId($id)->update($validatedData);
-
-            return redirect('/projets')->with('success', 'Votre projet à bien été édité');
+        $validatedData = $request->validate([
+            'name'          => 'required',
+            'description'   => 'required',
+            'image_url'     => 'required',
+            'technology'    => 'required',
+            'repo_url'      => 'nullable',
+            'website_url'   => 'nullable',
+            'categories_id' => 'required',
+        ]);
+        Projets::whereId($id)->update($validatedData);
+        return redirect('/projets')->with('success', 'Votre projet à bien été édité');
     }
 
     public function destroy($id)
     {
-            $projets = Projets::findOrFail($id);
-            $projets->delete();
-
-            return redirect('/projets')->with('success', 'Votre projet à bien été supprimé');
+        $projets = Projets::findOrFail($id);
+        $projets->delete();
+        return redirect('/projets')->with('success', 'Votre projet à bien été supprimé');
     }
 
 }

@@ -17,23 +17,20 @@ class UserController extends Controller
         return view('profile.profile',compact('members'));
     }
 
-    
     public function edit($id)
     {
         $members = User::findOrFail($id);
         return view('profile.edit', compact('members'));
     }
 
-   
     public function update(Request $request, $id)
     {
-            $validatedData = $request->validate([
-                'name'          => 'required',
-                'email'         => 'required',
-                'avatar'        => 'required',
-            ]);
-            User::whereId($id)->update($validatedData);
-
-            return redirect('/profile/{id}')->with('success', 'Votre profil à bien été édité');
+        $validatedData = $request->validate([
+            'name'          => 'required',
+            'email'         => 'required',
+            'avatar'        => 'required',
+        ]);
+        User::whereId($id)->update($validatedData);
+        return redirect('/profile/{id}')->with('success', 'Votre profil à bien été édité');
     }
 }

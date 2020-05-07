@@ -37,36 +37,34 @@ class ArticlesController extends Controller
 
     public function edit($id)
     {
-            $articles = Articles::findOrFail($id);
-            $users = User::all();
-            return view('articles.edit', compact('articles', 'users'));
+        $articles = Articles::findOrFail($id);
+        $users = User::all();
+        return view('articles.edit', compact('articles', 'users'));
     }
 
     public function show($id)
     {
-            $articles = Articles::findOrFail($id);
-            $users = User::all();
-            return view('articles.show', compact('articles', 'users'));
+        $articles = Articles::findOrFail($id);
+        $users = User::all();
+        return view('articles.show', compact('articles', 'users'));
     }
 
     public function update(Request $request, $id)
     {
-            $validatedData = $request->validate([
-                'title'          => 'required',
-                'description'   => 'required',
-                'image_url'     => 'required',
-                'user_id'    => 'required',
-            ]);
-            Articles::whereId($id)->update($validatedData);
-
-            return redirect('/articles')->with('success', 'Votre articles à bien été édité');
+        $validatedData = $request->validate([
+            'title'          => 'required',
+            'description'   => 'required',
+            'image_url'     => 'required',
+            'user_id'    => 'required',
+        ]);
+        Articles::whereId($id)->update($validatedData);
+        return redirect('/articles')->with('success', 'Votre articles à bien été édité');
     }
 
     public function destroy($id)
     {
-            $articles = Articles::findOrFail($id);
-            $articles->delete();
-
-            return redirect('/articles')->with('success', 'Votre articles à bien été supprimé');
+        $articles = Articles::findOrFail($id);
+        $articles->delete();
+        return redirect('/articles')->with('success', 'Votre articles à bien été supprimé');
     }
 }

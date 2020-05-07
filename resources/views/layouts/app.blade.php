@@ -26,49 +26,24 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                            <ul class="navbar-nav mr-auto">
-                
-
-                                    <li class="nav-item ">
-                                        <a class="nav-link" href="/">Accueil </a>
-                                      </li>
-                                      <li class="nav-item">
-                                        <a class="nav-link" href="/projets">Projet</a>
-                                      </li>
-                                      <li class="nav-item">
-                                        <a class="nav-link" href="/articles">Article</a>
-                                      </li>
-                                      <li class="nav-item">
-                                        <a class="nav-link" href="/message/create">Contact</a>
-                                      </li>
-                                      {{-- @auth    
-                                      <li class="nav-item">
-                                          <a class="nav-link" href="/projets/create">Créer un projet</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/articles/create">Créer un article</a>
-                                          </li>
-                                          <li class="nav-item">
-                                            <a class="nav-link" href="/categories/create">Créer une categorie</a>
-                                          </li>
-                                          <li class="nav-item">
-                                            <a class="nav-link" href="/message">Consulter vos messages</a>
-                                          </li>
-                                      <li>
-                                      @endauth --}}
-            
-                                </ul>
-
-
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/">Accueil </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/projets">Projet</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/articles">Article</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/message/create">Contact</a>
+                            </li> 
+                        </ul>
                     </ul>
-
-                    <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -83,7 +58,6 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item"  href="/profile/{id}">Mon espace</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
