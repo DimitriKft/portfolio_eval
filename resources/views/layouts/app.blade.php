@@ -42,7 +42,10 @@
                                       <li class="nav-item">
                                         <a class="nav-link" href="/articles">Article</a>
                                       </li>
-                                      @auth    
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="/message/create">Contact</a>
+                                      </li>
+                                      {{-- @auth    
                                       <li class="nav-item">
                                           <a class="nav-link" href="/projets/create">Créer un projet</a>
                                         </li>
@@ -52,8 +55,11 @@
                                           <li class="nav-item">
                                             <a class="nav-link" href="/categories/create">Créer une categorie</a>
                                           </li>
+                                          <li class="nav-item">
+                                            <a class="nav-link" href="/message">Consulter vos messages</a>
+                                          </li>
                                       <li>
-                                      @endauth
+                                      @endauth --}}
             
                                 </ul>
 

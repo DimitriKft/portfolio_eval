@@ -14,10 +14,6 @@
             <a class="btn btn-warning" href="/categories/create">Créer une categorie</a>
             <a class="btn btn-danger" href="/articles/create">Créer un article</a>
             <a class="btn btn-dark" href="/projets/create">Créer un projet</a>
-            {{-- <form action="{{ route('profil.destroy', $members->id)}}" method="post">
-              @csrf
-              @method('DELETE')
-              <button class="btn btn-danger" type="submit">Supprimer</button>
-            </form> --}}
+            <a class="btn btn-success" href="/message">Consulter vos messages</a>
             @endauth
 @endsection 
