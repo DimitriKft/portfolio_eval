@@ -48,7 +48,10 @@
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="/articles/create">Créer un article</a>
-                                          </li>    
+                                          </li>
+                                          <li class="nav-item">
+                                            <a class="nav-link" href="/categories/create">Créer une categorie</a>
+                                          </li>
                                       <li>
                                       @endauth
             

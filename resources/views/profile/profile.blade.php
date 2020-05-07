@@ -11,6 +11,7 @@
             </div>
             @auth
             <a href="{{ route('profile.edit', $members->first()->id)}}" class="btn btn-primary">Éditer</a>
+            {{-- <a href="{{ route('categorie.store', $case->id)}}" class="btn btn-success">Aouter une categorie</a> --}}
             {{-- <form action="{{ route('profil.destroy', $members->id)}}" method="post">
               @csrf
               @method('DELETE')

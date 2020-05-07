@@ -26,11 +26,7 @@
               @method('PATCH')
               <label for="name">Prénom:</label>
               <input type="text" class="form-control" name="name" value="{{ $members->name }}"/>
-          </div>
-          {{--  <div class="form-group">
-                <label for="description">Nom :</label>
-                <input type="text" class="form-control" name="first_name" value="{{ $members->first_name }}"/>
-            </div>  --}}
+          </div>  
           <div class="form-group">
               <label for="description">Email :</label>
               <input type="text" class="form-control" name="email" value="{{ $members->email }}"/>
@@ -39,7 +35,7 @@
               <label for="image_url">Avatar :</label>
               <input type="text" class="form-control" name="avatar" value="{{ $members->avatar }}"/>
           </div>
-          <button type="submit" class="btn btn-primary">Editer le projet</button>
+          <button type="submit" class="btn btn-primary">Editer votre profil</button>
       </form>
   </div>
 </div>
