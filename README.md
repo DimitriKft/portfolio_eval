@@ -18,3 +18,6 @@ Ou vous enregistrer.
   grace au bouton edit/suppr
 
 Bon naviguation.
+
+
+kanban du projet : https://trello.com/b/1tpAubLI/dimpythonisetak

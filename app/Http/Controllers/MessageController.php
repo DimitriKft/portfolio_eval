@@ -43,7 +43,7 @@ class MessageController extends Controller
             'message'     => 'required',
         ]);
         Messages::create($validatedData);
-        return redirect('/home')->with('success', 'Votre message ma correctement été transmis.', compact('message'));
+        return redirect('/')->with('success', 'Votre message ma correctement été transmis.', compact('message'));
     }
 
     /**
@@ -88,6 +88,9 @@ class MessageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $message = Messages::findOrFail($id);
+        $message->delete();
+
+        return redirect('/')->with('success', 'Votre message à bien été supprimé', compact('messages'));
     }
 }
