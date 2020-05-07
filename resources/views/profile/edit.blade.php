@@ -8,7 +8,7 @@
 </style>
 <div class="card uper">
   <div class="card-header">
-   <h5><b>{{ $projets->name }}</b></h5>
+   <h5><b>{{ $members->name }}</b></h5>
   </div>
   <div class="card-body">
     @if ($errors->any())
@@ -20,24 +20,24 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('profil.update', $members->id ) }}">
+      <form method="POST" action="{{ route('profile.update', $members->id ) }}">
           <div class="form-group">
               @csrf
               @method('PATCH')
-              <label for="name">Name:</label>
+              <label for="name">Prénom:</label>
               <input type="text" class="form-control" name="name" value="{{ $members->name }}"/>
           </div>
+          {{--  <div class="form-group">
+                <label for="description">Nom :</label>
+                <input type="text" class="form-control" name="first_name" value="{{ $members->first_name }}"/>
+            </div>  --}}
           <div class="form-group">
-                <label for="description">description :</label>
-                <input type="text" class="form-control" name="name" value="{{ $members->first_name }}"/>
-            </div>
-          <div class="form-group">
-              <label for="description">description :</label>
-              <input type="text" class="form-control" name="name" value="{{ $members->email }}"/>
+              <label for="description">Email :</label>
+              <input type="text" class="form-control" name="email" value="{{ $members->email }}"/>
           </div>
           <div class="form-group">
-              <label for="image_url">image_url :</label>
-              <input type="text" class="form-control" name="image_url" value="{{ $members->avatar }}"/>
+              <label for="image_url">Avatar :</label>
+              <input type="text" class="form-control" name="avatar" value="{{ $members->avatar }}"/>
           </div>
           <button type="submit" class="btn btn-primary">Editer le projet</button>
       </form>
