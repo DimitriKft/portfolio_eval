@@ -21,11 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::get('profile/{id}', 'UserController@show')->middleware('auth');
-// Route::get('profile/{id}/edit/', [ 'as' => 'profile.edit', 'uses' => 'UserController@edit']);
-// Route::get('profile/{id}/update/', [ 'as' => 'profile.update', 'uses' => 'UserController@update']);
-
-
+Route::resource('message', 'MessageController');
 Route::resource('categories', 'CategoriesController');
 Route::resource('profile', 'UserController');
 Route::resource('projets', 'ProjetsController');

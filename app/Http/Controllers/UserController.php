@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Categories;
 use App\User;
+use App\Projets;
+use App\Articles;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -28,7 +31,6 @@ class UserController extends Controller
     public function show($id)
     {
         $members = User::all();
-
         return view('profile.profile',compact('members'));
     }
 
