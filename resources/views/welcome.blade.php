@@ -2,33 +2,35 @@
 
 @section('content')
 <div class="container">
-        <div class="content">
-                @if(session()->get('success'))
-      <div class="alert alert-success">
-        {{ session()->get('success') }}  
-      </div><br />
-    @endif
-    <p>{{ $articles->name }}</p>
-   {{-- <div class="col-sm">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{ $projet->image_url }}" alt="Card image cap">
-        <div class="card-body">
-        <h5 class="card-title">{{ $projet->name }}</h5>
-        <p class="card-text">{{ Illuminate\Support\Str::limit($projet->description, 150) }}</p>
-        <p class="card-text"> <b>Technologies : </b>{{ $projet->technology }}</p>
-        <p class="card-text"><b>Repository : </b>{{ $projet->repo_url }}</p>
-        <p class="card-text"><b>Site web/Hébergement : </b>{{ $projet->website_url }}</p>
-        @foreach ($cats as $cat)
-          @if( $projet->categories_id == $cat->id  )
-            <p class="card-text"><b>Catégorie du porjet : </b>{{ $cat->name }}</p>
-          @endif
-        @endforeach
-         @foreach ($cats as $cat)
-          @if( $projet->categories_id == $cat->id  )
-            <p class="card-text"><b>Catégorie du porjet : </b>{{ $cat->name }}</p>
-          @endif
-        @endforeach
-
-      </div> --}}
+    <h1>Bienvenue sur mon portfolio</h1>
+    @if(session()->get('success'))
+    <div class="alert alert-success">
+      {{ session()->get('success') }}  
+    </div><br />
+  @endif
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Projet Mise en avant !</div>
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    @foreach ($projets as $projet )
+                        @if ( $projet->name == 'RECALL CORPORATE' )
+                        <p>{{ $projet->name}}</p>
+                        @endif
+                        @if ( $projet->image_url == 'https://www.dimitri-klopfstein.com/wp-content/uploads/2019/12/Capture-d%E2%80%99%C3%A9cran-de-2019-12-16-16-06-28.png' )
+                        <img class="card-img-top" src="{{ $projet->image_url }}" alt="">
+                        @endif
+                    @endforeach
+                    <p><b>En savoir plus sur ce projet : <a href="http://127.0.0.1:8000/projets/8">C'est par ici</a></b></p>
+                    <a href="http://marszoned.herokuapp.com/">Visiter le site</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
