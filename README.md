@@ -3,6 +3,8 @@
 
 Ou vous enregistrer.
 
+En local,  une fois le repo cloner sur votre machine, dans votre terminal:  "composer i" et "npm i"
+
 - Une fois loguer, vous avez accés à votre panneau d'anministration dans votre espace membre. Vous pourrez alors :
     - Editer votre profil
     - Créer une catégories
